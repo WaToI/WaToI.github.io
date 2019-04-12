@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="https://unpkg.com/mermaid/dist/mermaid.min.css" />
+  <script src="https://unpkg.com/mermaid/dist/mermaid.min.js" charset="UTF-8"></script>
+</head>
+
+<body onload="init()">
+
+  <div class="mermaid">
+    graph TD;
+    A-->B;
+  </div>
+
+フローチャートのサンプル
+<div class="mermaid" id="diagram">
+  graph LR;
+	A>開始] --> |"順調"|B[終わって暇];
+	A -.-> C{Dはよ};
+	A --> D(:D 実装が遅れた);
+	B --> F;
+	C --> F;
+	D ==> E((Dはよ));
+	D ==> C;
+	E --> F{>>デスマ<<};
+	click B "https://www.bing.com/" "リンクはれる";
+</div>
+
+シーケンス図のサンプル
+<div class="mermaid" id="sequence">
+  sequenceDiagram
+	本部->>隊長: レンジャー1、状況を報告しろ！
+	隊長->>本部:巨大生物と交戦、数匹を撃破しました！
+	本部->>隊長:なんだと！？そんな馬鹿な！
+	隊員-->>隊員:どうなってんだ……なんで巨大生物が？
+	隊員->>隊長:7年ぶりの巨大生物だ。今や絶滅危惧種だぞ！
+	隊長->>隊員:危惧は無用だ、絶滅させろ！
+	隊員->>隊長:Yes,sir!
+	loop 無線
+	  本部->>隊長:聞こえないぞ、繰り返せ！
+	end
+</div>
+
+クラス図のサンプル
+<div class="mermaid" id="diagram" style="width:50%">
+classDiagram
+    Component <|-- ConcreteComponent
+	Component <|-- Decorator
+	Decorator o-- Component
+	Component : +operation()
+	ConcreteComponent : +operation()
+	Decorator : -component
+	Decorator : +operation()
+	Decorator <|-- ConcreteDecorator
+	ConcreteDecorator : +operation()
+</div>
+
+gitグラフのサンプル
+<div class="mermaid" id="gitgraph">
+gitGraph BT:
+options
+	{
+	"nodeSpacing": 50
+	}
+end
+    commit "initial commit"
+    branch develop
+    checkout develop
+    commit
+    commit
+    branch feature
+    checkout feature
+    commit
+	checkout develop
+    commit
+	merge feature
+	checkout master
+    branch hotfix
+    checkout hotfix
+    commit "bugfix"
+	checkout master
+    merge hotfix
+	checkout develop
+	merge hotfix
+	checkout master
+    merge develop
+</div>
+
+  <script>
+    function init() {
+      mermaid.initialize({
+        startOnLoad: true
+      });
+    }
+  </script>
+
+</body>
+
+</html>
