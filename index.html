@@ -91,15 +91,29 @@ end
 </div>
 
   <script>
+		function init(){
+		}
+
 		mermaid.initialize({
 			startOnLoad: true,
-			htmlLabels: true, mermaid: {
+			htmlLabels:false,
+			flowchart:{ useMaxWidth:false, htmlLabels:false },
+			mermaid: {
 				callback:function(id) {
-				//console.log(id)
-				var elm = document.getElementById(id)
-				elm.style.height = "500px"
-				elm.style.width = "500px"
-			}
+					//alert(id)
+					//console.log(id)
+					var elm = document.getElementById(id)
+					elm.heigt = null
+					elm.width = null
+					elm.style.heigt = null
+					elm.style.width = null
+					elm.style.max_height = null
+					elm.style.max_width = null
+					elm.heigt = "800px"
+					elm.width = "800px"
+					elm.style.heigt = "800px"
+					elm.style.width = "800px"
+				}
 			}
 		});
   </script>
