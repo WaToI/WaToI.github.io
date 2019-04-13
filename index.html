@@ -6,9 +6,6 @@
   <link rel="stylesheet" href="https://unpkg.com/mermaid/dist/mermaid.min.css" />
 	<script src="https://unpkg.com/mermaid/dist/mermaid.min.js" charset="UTF-8"></script>
 	<style>
-	.mermaid{
-		width:600px;
-	}
 	</style>
 </head>
 
@@ -51,7 +48,7 @@
 クラス図のサンプル
 <div class="mermaid" id="diagram">
 classDiagram
-    Component <|-- ConcreteComponent
+	Component <|-- ConcreteComponent
 	Component <|-- Decorator
 	Decorator o-- Component
 	Component : +operation()
@@ -94,17 +91,17 @@ end
 </div>
 
   <script>
-    function init() {
-      mermaid.initialize({
-        startOnLoad: true, 
-				sequenceDiagram:{
-					mirrorActors:true,
-					height:35,
-					topPadding:100,
-					useMaxWidth:false
-        }
-      });
-    }
+		mermaid.initialize({
+			startOnLoad: true,
+			htmlLabels: true, mermaid: {
+				callback:function(id) {
+				//console.log(id)
+				var elm = document.getElementById(id)
+				elm.style.height = "500px"
+				elm.style.width = "500px"
+			}
+			}
+		});
   </script>
 
 </body>
