@@ -4,7 +4,12 @@
 <head>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="https://unpkg.com/mermaid/dist/mermaid.min.css" />
-  <script src="https://unpkg.com/mermaid/dist/mermaid.min.js" charset="UTF-8"></script>
+	<script src="https://unpkg.com/mermaid/dist/mermaid.min.js" charset="UTF-8"></script>
+	<style>
+	.mermaid{
+		width:600px;
+	}
+	</style>
 </head>
 
 <body onload="init()">
@@ -44,7 +49,7 @@
 </div>
 
 クラス図のサンプル
-<div class="mermaid" id="diagram" style="width:50%">
+<div class="mermaid" id="diagram">
 classDiagram
     Component <|-- ConcreteComponent
 	Component <|-- Decorator
