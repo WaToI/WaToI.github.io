@@ -91,7 +91,12 @@ end
   <script>
     function init() {
       mermaid.initialize({
-        startOnLoad: true
+        startOnLoad: true, 
+				sequenceDiagram:{
+					 mirrorActors:true,
+						topPadding:100,
+						useMaxWidth:false
+        }
       });
     }
   </script>
