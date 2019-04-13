@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="stylesheet" href="https://unpkg.com/mermaid/dist/mermaid.min.css" />
 	<script src="https://unpkg.com/mermaid/dist/mermaid.min.js" charset="UTF-8"></script>
 	<style>
 	</style>
@@ -22,12 +21,13 @@
 	A>開始] --> |"順調"|B[終わって暇];
 	A -.-> C{Dはよ};
 	A --> D(:D 実装が遅れた);
-	B --> F;
+	B["リンクはれる IEのhtmlLabels:falseで死亡"] --> F;
+
 	C --> F;
 	D ==> E((Dはよ));
 	D ==> C;
 	E --> F{>>デスマ<<};
-	click B "https://www.bing.com/" "リンクはれる";
+	click B "https://www.bing.com/" "link";
 </div>
 
 シーケンス図のサンプル
@@ -45,18 +45,41 @@
 	end
 </div>
 
+ガントチャートのサンプル
+<div class="mermaid" id="diagram">
+  gantt
+    title 銀行次期システム開発
+
+	section 新勘定系システム
+	案件定義       :done, c1, 2012-11-20, 250d
+	基本設計       :active, c2, after c1, 250d
+	詳細設計・製造 :active, c3, after c2, 250d
+	結合テスト     :crit, c4, after c3, 400d
+	総合テスト     :crit, c5, after c4, 353d
+	プレ受入テスト  :d1, 2015-07-01, 550d
+</div>
+
 クラス図のサンプル
 <div class="mermaid" id="diagram">
 classDiagram
-	Component <|-- ConcreteComponent
-	Component <|-- Decorator
-	Decorator o-- Component
-	Component : +operation()
-	ConcreteComponent : +operation()
-	Decorator : -component
-	Decorator : +operation()
-	Decorator <|-- ConcreteDecorator
-	ConcreteDecorator : +operation()
+
+Class01 <|-- AveryLongClass : Cool
+Class01 : size(a)
+Class01 : int chimp
+Class01 : int gorilla
+
+Class02 *--Class03
+Class02 : int name
+
+Class03 *-- Class04
+Class05 o-- Class06
+Class07 .. Class08
+Class07 : equals()
+Class07 : Object[] elementData
+Class09 --> C2 : Where am i?
+Class09 --* C3
+Class09 --|> Class07
+Class08 <--> C2: Cool label
 </div>
 
 gitグラフのサンプル
@@ -103,16 +126,14 @@ end
 					//alert(id)
 					//console.log(id)
 					var elm = document.getElementById(id)
-					elm.heigt = null
-					elm.width = null
-					elm.style.heigt = null
-					elm.style.width = null
-					elm.style.max_height = null
-					elm.style.max_width = null
-					elm.heigt = "800px"
-					elm.width = "800px"
-					elm.style.heigt = "800px"
-					elm.style.width = "800px"
+					var w = "720px"
+					var h = null
+					elm.style.max_width = "1920px"
+					elm.style.max_height = "1080px"
+					elm.heigt = h
+					elm.width = w
+					elm.style.heigt = h
+					elm.style.width = w
 				}
 			}
 		});
